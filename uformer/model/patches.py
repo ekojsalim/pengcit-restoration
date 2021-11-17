@@ -166,8 +166,7 @@ def _windowed_subdivs(padded_img, window_size, subdivisions, nb_classes, pred_fu
 
     step = int(window_size/subdivisions)
     padx_len = padded_img.shape[0]
-    
-    = padded_img.shape[1]
+    pady_len = padded_img.shape[1]
     subdivs = []
 
     for i in range(0, padx_len-window_size+1, step):
