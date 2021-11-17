@@ -169,9 +169,9 @@ def _windowed_subdivs(padded_img, window_size, subdivisions, nb_classes, pred_fu
     pady_len = padded_img.shape[1]
     subdivs = []
 
-    for i in range(0, padx_len-window_size+1, step):
+    for i in range(0, pady_len-window_size+1, step):
         subdivs.append([])
-        for j in range(0, padx_len-window_size+1, step):
+        for j in range(0, pady_len-window_size+1, step):
             patch = padded_img[i:i+window_size, j:j+window_size, :]
             subdivs[-1].append(patch)
 
