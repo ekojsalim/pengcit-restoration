@@ -56,9 +56,8 @@ def _window_2D(window_size, power=2):
         wind = cached_2d_windows[key]
     else:
         wind = _spline_window(window_size, power)
-        wind = np.expand_dims(wind, 1)
-        wind = wind * wind.transpose()
-        wind = np.stack((wind, wind, wind), axis=-1)
+        wind = np.expand_dims(np.expand_dims(wind, 1), 1)
+        wind = wind * wind.transpose(1, 0, 2)
         if PLOT_PROGRESS:
             # For demo purpose, let's look once at the window:
             plt.imshow(wind[:, :, 0], cmap="viridis")
